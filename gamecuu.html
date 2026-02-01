@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hành Trình Cừu Tìm Nghề</title>
+    <style>
+        :root { --grass: #55efc4; --sky: #81ecec; --primary: #6c5ce7; }
+        body { margin: 0; padding: 0; overflow: hidden; font-family: 'Segoe UI', sans-serif; }
+
+        /* --- BẢNG MỞ ĐẦU --- */
+        #intro-screen {
+            position: fixed; inset: 0; background: var(--sky);
+            display: flex; align-items: center; justify-content: center; z-index: 1000;
+        }
+        .intro-box {
+            background: white; padding: 30px; border-radius: 20px;
+            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 85%; max-width: 350px;
+        }
+        .start-btn {
+            background: var(--primary); color: white; border: none; padding: 12px 30px;
+            border-radius: 8px; font-size: 1.1rem; cursor: pointer; font-weight: bold; margin-top: 15px;
+        }
+
+        /* --- GAME WORLD --- */
+        #game-world { position: relative; width: 100vw; height: 100vh; background: var(--sky); }
+        #ground { position: absolute; bottom: 0; width: 100%; height: 30%; background: var(--grass); }
+
+        .door { 
+            position: absolute; bottom: 30%; left: 80%; width: 90px; height: 130px; 
+            background: #d63031; border: 4px solid #fab1a0; border-radius: 40px 40px 0 0;
+            display: flex; align-items: center; justify-content: center; font-size: 2rem;
+            transition: 0.8s; opacity: 1;
+        }
+
+        /* --- NHÂN VẬT CỪU --- */
+        #sheep { position: absolute; bottom: 25%; left: -20%; width: 100px; height: 100px; transition: 1s; }
+        .sheep-body { 
+            width: 70px; height: 50px; background: white; border-radius: 40px; 
+            box-shadow: 10px -10px 0 white, -10px -5px 0 white; animation: bounce 0.3s infinite alternate;
+        }
+        .sheep-head { position: absolute; width: 35px; height: 35px; background: #333; border-radius: 50%; right: -15px; top: 10px; }
+        @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-5px); } }
+
+        /* --- QUIZ UI --- */
+        #quiz-overlay { 
+            position: fixed; inset: 0; background: rgba(0,0,0,0.5); 
+            display: none; align-items: center; justify-content: center; z-index: 100;
+        }
+        .quiz-card { background: white; padding: 25px; border-radius: 15px; width: 90%; max-width: 400px; text-align: center; }
+        .options { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        .btn { padding: 12px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; background: white; transition: 0.2s; font-size: 0.95rem; }
+        .btn:hover { background: var(--primary); color: white; }
+
+        /* --- KẾT QUẢ --- */
+        #final-result { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 40px; border-radius: 20px; z-index: 200; text-align: center; width: 280px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);}
+    </style>
+</head>
+<body>
+
+<div id="intro-screen">
+    <div class="intro-box">
+        <h2 style="color: var(--primary); margin-top:0;">Hành Trình Cừu Tìm Nghề</h2>
+        <p style="color: #666;">Cùng cừu đi tìm công việc phù hợp nhất!</p>
+        <button class="start-btn" onclick="startGame()">Bắt đầu</button>
+    </div>
+</div>
+
+<div id="game-world">
+    <div id="ground"></div>
+    <div id="active-door" class="door">🚪</div>
+    <div id="sheep"><div class="sheep-body"><div class="sheep-head"></div></div></div>
+</div>
+
+<div id="quiz-overlay">
+    <div class="quiz-card">
+        <div id="q-text" style="font-weight: bold; font-size: 1.1rem; color: #333;"></div>
+        <div class="options" id="opt-container"></div>
+    </div>
+</div>
+
+<div id="final-result">
+    <h3>Nghề nghiệp của bạn:</h3>
+    <p id="res-text" style="font-size: 1.4rem; color: var(--primary); font-weight: bold;"></p>
+    <button class="btn" style="width:100%" onclick="location.reload()">Chơi lại</button>
+</div>
+
+<script>
+    const data = [
+        { q: "Trong một nhóm, bạn thường là người:", a: ["Âm thầm làm tốt phần của mình", "Kết nối và thúc đẩy mọi người", "Giải quyết vấn đề và tối ưu", "Tập trung cao độ vào chất lượng"] },
+        { q: "Bạn cảm thấy khó chịu nhất khi:", a: ["Sản phẩm thiếu thẩm mỹ", "Thông điệp không rõ ràng", "Hệ thống hoạt động kém", "Chi tiết bị làm qua loa"] },
+        { q: "Khi làm việc dài hạn, bạn cần nhất:", a: ["Không gian sáng tạo riêng", "Sự tương tác và trao đổi", "Cấu trúc và kế hoạch rõ ràng", "Thời gian để hoàn thiện"] },
+        { q: "Bạn thường được người khác nhận xét là:", a: ["Tinh tế và có gu", "Năng động và cởi mở", "Logic và đáng tin cậy", "Khó tính nhưng chất lượng"] },
+        { q: "Khi có nhiều việc cùng lúc, bạn sẽ:", a: ["Ưu tiên việc mình làm tốt nhất", "Sắp xếp theo mức độ ảnh hưởng", "Lập danh sách và xử lý dần", "Tập trung từng việc cho thật chuẩn"] },
+        { q: "Bạn cảm thấy tự tin nhất khi:", a: ["Được tự do sáng tạo", "Được trình bày và thuyết phục", "Giải quyết được vấn đề khó", "Hoàn thiện một sản phẩm phức tạp"] },
+        { q: "Điều khiến bạn dễ mất động lực là:", a: ["Bị bó buộc ý tưởng", "Làm việc thiếu sự kết nối", "Mục tiêu mơ hồ", "Chất lượng không được coi trọng"] },
+        { q: "Bạn đánh giá bản thân là người:", a: ["Nhạy cảm với cái đẹp", "Giỏi thích nghi và giao tiếp", "Bình tĩnh và lý trí", "Cầu toàn và kiên trì"] },
+        { q: "Khi phải học một thứ hoàn toàn mới, bạn thường:", a: ["Tự mày mò theo cảm hứng", "Học qua trao đổi và quan sát người khác", "Học theo lộ trình rõ ràng", "Kiên nhẫn luyện tập đến khi thành thạo"] },
+        { q: "Trong công việc, điều bạn coi trọng nhất là:", a: ["Cảm xúc và thẩm mỹ", "Sự ảnh hưởng và kết nối", "Tính ổn định và hiệu quả", "Chất lượng và chiều sâu"] }
+    ];
+
+    let current = 0;
+    let scores = {A:0, B:0, C:0, D:0};
+    const sheep = document.getElementById('sheep');
+    const door = document.getElementById('active-door');
+    const overlay = document.getElementById('quiz-overlay');
+
+    function startGame() {
+        document.getElementById('intro-screen').style.display = "none";
+        resetStage();
+    }
+
+    function resetStage() {
+        sheep.style.transition = "none";
+        sheep.style.left = "-20%";
+        door.style.opacity = "1";
+        setTimeout(() => {
+            sheep.style.transition = "1s";
+            sheep.style.left = "70%";
+            setTimeout(() => {
+                overlay.style.display = "flex";
+                showQuestion();
+            }, 1000);
+        }, 50);
+    }
+
+    function showQuestion() {
+        const q = data[current];
+        document.getElementById('q-text').innerText = q.q;
+        const cont = document.getElementById('opt-container');
+        cont.innerHTML = "";
+        q.a.forEach((text, i) => {
+            const b = document.createElement("button");
+            b.className = "btn";
+            b.innerText = text;
+            b.onclick = () => {
+                scores[String.fromCharCode(65 + i)]++;
+                overlay.style.display = "none";
+                sheep.style.left = "120%";
+                door.style.opacity = "0";
+                setTimeout(() => {
+                    current++;
+                    if (current < data.length) resetStage();
+                    else showFinalResult();
+                }, 1000);
+            };
+            cont.appendChild(b);
+        });
+    }
+
+    function showFinalResult() {
+        const max = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+        const map = { 
+            'A': 'Chuyên viên Thiết kế Đồ Họa', 
+            'B': 'Chuyên viên Thiết kế Truyền thông Đa phương tiện', 
+            'C': 'Chuyên viên Kỹ xảo điện ảnh', 
+            'D': 'Chuyên viên phát triển trang web' 
+        };
+        document.getElementById('final-result').style.display = "block";
+        document.getElementById('res-text').innerText = map[max];
+    }
+</script>
+
+</body>
+</html>

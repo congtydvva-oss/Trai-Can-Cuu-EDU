@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Web Co Ban - Tinh Te</title>
+    <style>
+        /* CSS co ban nhung duoc tinh chinh cho dep hon */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        header {
+            background: white;
+            padding: 10px 5%; 
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        /* Style de thu nho logo */
+        .header-logo {
+            height: 40px; 
+            width: auto;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .header-brand {
+            display: flex;
+            align-items: center;
+        }
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #4a90e2;
+        }
+        main {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+        /* Layout chia cot */
+        .top-container {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        .content-left {
+            flex: 3;
+        }
+        aside {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        /* Danh sach truong dai hoc */
+        .uni-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .uni-item {
+            margin-bottom: 20px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .uni-item:hover {
+            transform: scale(1.03);
+        }
+        .uni-item a {
+            text-decoration: none;
+            color: #444;
+            font-size: 13px;
+        }
+        .uni-logo {
+            width: 100%;
+            height: 90px;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.02);
+        }
+        .uni-logo img {
+            max-width: 70%;
+            max-height: 70%;
+        }
+        /* Banner va Noi dung */
+        .banner {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            padding: 50px 30px;
+            border-radius: 24px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 15px rgba(74, 144, 226, 0.3);
+        }
+        .intro-section {
+            display: flex;
+            gap: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            align-items: center;
+        }
+        .intro-image {
+            width: 180px;
+            height: 180px;
+            flex-shrink: 0;
+            border-radius: 18px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+        }
+        /* Grid he thong */
+        .grid-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .card {
+            flex: 1;
+            background: white;
+            padding: 25px 15px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.02);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .card h4 {
+            margin: 0;
+            color: #4a90e2;
+        }
+        footer {
+            background: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-brand">
+            <img src="https://scontent.fvca1-3.fna.fbcdn.net/v/t39.30808-6/621800187_1712308776395965_7247490065487986686_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=rj3IHwu3Hi4Q7kNvwHy0mwi&_nc_oc=AdmOupWnM40qdRdXcnS_5gLT5aMSgHA0UWlue9PQvyNJbk7EsG7YtQxWAkNxggm5boo&_nc_zt=23&_nc_ht=scontent.fvca1-3.fna&_nc_gid=d1ba8QmTHoxrpj79A8nblg&oh=00_AfpZqaumrly5GOkCczgxDGNWOQz4x2kvhzR7tl2OXRfMPQ&oe=69812E67" alt="Logo" class="header-logo">
+            <strong style="font-size: 1.2em; color: #4a90e2;">★ D.A.W EDU</strong>
+        </div>
+        <nav>
+            <a href="#">Trang chủ</a>
+            <a href="#">Tin tuyển sinh</a>
+            <a href="#">Học bổng</a>
+            <a href="#">Liên hệ</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="top-container">
+            <section class="content-left">
+                <div class="banner">
+                    <h1>Khát Vọng Vươn Xa</h1>
+                    <p>Cổng thông tin tổng hợp lộ trình học tập <br> và định hướng tương lai cho sinh viên.</p>
+                </div>
+
+                <div class="intro-section">
+                    <div class="intro-image">
+                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJndXN3bm5qZzR4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKVUn7iM8FMEU24/giphy.gif" alt="Học tập GIF" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div>
+                        <h2 style="color: #333; margin-top: 0;">Chào mừng bạn</h2>
+                        <p>Hệ thống hỗ trợ tìm kiếm thông tin về các trường đại học trọng điểm tại Việt Nam. Giúp bạn có cái nhìn tổng quan nhất về môi trường học tập chất lượng cao.</p>
+                        <p style="color: #666; font-style: italic;">"Học vấn là chìa khóa mở cánh cửa tương lai."</p>
+                    </div>
+                </div>
+            </section>
+
+            <aside>
+                <h3 style="text-align: center; color: #4a90e2; font-size: 1.1em; margin-top: 0;">TOP ĐẠI HỌC VN</h3>
+                <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 20px;">
+                
+                <ul class="uni-list">
+                    <li class="uni-item">
+                        <a href="https://vnu.edu.vn/" target="_blank">
+                            <div class="uni-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/vi/6/62/Logo_Đại_học_Quốc_gia_Hà_Nội.svg" alt="VNU">
+                            </div>
+                            ĐHQG Hà Nội
+                        </a>
+                    </li>
+                    <li class="uni-item">
+                        <a href="https://vnuhcm.edu.vn/" target="_blank">
+                            <div class="uni-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/vi/a/a1/Logo_ĐHQG-HCM.png" alt="VNU-HCM">
+                            </div>
+                            ĐHQG TP.HCM
+                        </a>
+                    </li>
+                    <li class="uni-item">
+                        <a href="https://www.hust.edu.vn/" target="_blank">
+                            <div class="uni-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Logo_Hust.png" alt="HUST">
+                            </div>
+                            Bách Khoa Hà Nội
+                        </a>
+                    </li>
+                    <li class="uni-item">
+                        <a href="https://www.neu.edu.vn/" target="_blank">
+                            <div class="uni-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/vi/d/d3/Logo_Kinh_tế_Quốc_dân.svg" alt="NEU">
+                            </div>
+                            Kinh tế Quốc dân
+                        </a>
+                    </li>
+                    <li class="uni-item">
+                        <a href="https://www.ftu.edu.vn/" target="_blank">
+                            <div class="uni-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/vi/d/d4/Logo_Ngoại_thương.png" alt="FTU">
+                            </div>
+                            ĐH Ngoại thương
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+
+        <!-- 4 Muc nghe nghiep moi gan voi file upload -->
+        <div class="grid-container">
+            <a href="khanhvytab.html" class="card">
+                <h4>Thiết kế Đồ họa</h4>
+                <p style="font-size: 12px; color: #888;">Khám phá lộ trình chuyên sâu</p>
+            </a>
+            <a href="tabcuaduongdat.html" class="card">
+                <h4>Lập trình Web</h4>
+                <p style="font-size: 12px; color: #888;">Cẩm nang Developer 2026</p>
+            </a>
+            <a href="Thaovytab.html" class="card">
+                <h4>Truyền thông Đa phương tiện</h4>
+                <p style="font-size: 12px; color: #888;">Sáng tạo trong kỷ nguyên số</p>
+            </a>
+            <a href="TuAnhtab.html" class="card">
+                <h4>Kỹ xảo điện ảnh VFX</h4>
+                <p style="font-size: 12px; color: #888;">Đam mê hình ảnh kỹ thuật số</p>
+            </a>
+        </div>
+
+        <div class="grid-container">
+            <div class="card"><b>Kế hoạch học tập</b></div>
+            <div class="card"><b>Tư vấn hướng nghiệp</b></div>
+            <div class="card"><b>Câu lạc bộ sinh viên</b></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Educational Portal - Designed for Excellence</p>
+    </footer>
+
+</body>
+</html>
