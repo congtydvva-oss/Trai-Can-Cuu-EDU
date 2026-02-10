@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truyền cảm hứng</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleddtest.css">
+    <style>
+        :root {
+            --bg-cream: #FCF8E8;
+            --mint: #B7D9D3;
+            --coral: #FF9F9F;
+            --pink: #FFC7C7;
+            --dark: #2d3436;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--dark);
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVIGATION */
+        header {
+            background-color: var(--white);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .brand-logo { height: 50px; width: 50px; border-radius: 50%; border: 2px solid var(--mint); object-fit: cover; }
+        .brand-name { font-weight: 700; font-size: 1.3rem; } 
+        .brand-name span { color: var(--coral); }
+        .nav-links { list-style: none; display: flex; gap: 15px; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--coral); }
+
+        /* HERO SECTION */
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 60px 10%;
+            gap: 40px;
+        }
+        .hero-text h1 { font-size: 2.5rem; margin-bottom: 20px; line-height: 1.2; }
+        .hero-text span { color: var(--coral); }
+        .hero-image img { width: 100%; max-width: 450px; border-radius: 20px; box-shadow: 15px 15px 0 var(--mint); }
+
+        /* CONTAINER */
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        section { margin-bottom: 70px; background: var(--white); padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        h2 { font-size: 1.8rem; margin-bottom: 25px; border-left: 8px solid var(--coral); padding-left: 15px; color: var(--dark); }
+        h3 { margin: 20px 0 10px; color: var(--coral); font-size: 1.4rem; }
+
+        /* CONTENT STYLES */
+        .profile-flex { display: flex; gap: 30px; align-items: flex-start; margin-top: 20px; }
+        .profile-img { width: 250px; height: 250px; border-radius: 20px; object-fit: cover; flex-shrink: 0; border: 5px solid var(--bg-cream); }
+        .quote-box { background: var(--bg-cream); padding: 20px; border-radius: 20px; border-left: 5px solid var(--mint); font-style: italic; margin: 20px 0; }
+        
+        .story-card { background: var(--pink); padding: 20px; border-radius: 20px; margin-top: 15px; }
+        .story-card h4 { margin-bottom: 10px; color: var(--dark); }
+
+        /* FOOTER */
+        footer { background: var(--dark); color: var(--white); padding: 60px 10% 20px; text-align: center; border-radius: 50px 50px 0 0; }
+        .credit { margin-top: 40px; padding-top: 20px; border-top: 1px solid #444; font-size: 0.9rem; color: var(--pink); }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; }
+            .profile-flex { flex-direction: column; align-items: center; text-align: center; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+   <header>
+        <div class="logo-area">
+            <div class="brand-logo">
+                <a href="menu.html">
+                    <img src="https://scontent.fvca1-3.fna.fbcdn.net/v/t39.30808-6/621800187_1712308776395965_7247490065487986686_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=rj3IHwu3Hi4Q7kNvwHy0mwi&_nc_oc=AdmOupWnM40qdRdXcnS_5gLT5aMSgHA0UWlue9PQvyNJbk7EsG7YtQxWAkNxggm5boo&_nc_zt=23&_nc_ht=scontent.fvca1-3.fna&_nc_gid=d1ba8QmTHoxrpj79A8nblg&oh=00_AfpZqaumrly5GOkCczgxDGNWOQz4x2kvhzR7tl2OXRfMPQ&oe=69812E67" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
+                </a>
+            </div>
+            <div class="brand-name">Trai<span>Can Cuu EDUCATION</span></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>NHỮNG GƯƠNG MẶT <span>THAY ĐỔI</span> THẾ GIỚI SỐ</h1>
+            <p>Khám phá câu chuyện của những huyền thoại trong giới sáng tạo, từ những dòng code thay đổi Internet đến những hình ảnh định nghĩa lại nghệ thuật thị giác.</p>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1000" alt="Technology and Art">
+        </div>
+    </section>
+
+    <div class="container">
+        
+        <section id="design">
+            <h2>1. Thiết kế Đồ họa: Stefan Sagmeister</h2>
+            <div class="profile-flex">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSJX8WfRPuyKQMuVT9XP-Ew21Qc604dsTN-GJD_10p_pMdPFgo7FMPNP5JQ8eVEH3bd4Xs67IDM7zgVxTKCjMbLcDX9MqplczlcioBjA6og&s=10" alt="Stefan Sagmeister" class="profile-img">
+                <div>
+                    <h3>Người phá vỡ mọi quy chuẩn thị giác</h3>
+                    <p>Stefan không chỉ là một nhà thiết kế, ông là một nghệ sĩ trình diễn nghệ thuật đồ họa. Ông nổi tiếng với phong cách "vẽ trên cơ thể" và những thử nghiệm Typography cực hạn.</p>
+                    <div class="quote-box">
+                        "Nếu bạn không làm những điều không thể, bạn sẽ không bao giờ biết được giới hạn của mình nằm ở đâu."
+                    </div>
+                </div>
+            </div>
+            <div class="story-card">
+                <h4>Câu chuyện truyền cảm hứng:</h4>
+                <p>Cứ mỗi 7 năm làm việc, Stefan lại đóng cửa studio trong 1 năm để "đi tìm cảm hứng". Ông tin rằng sự sáng tạo không đến từ việc làm việc liên tục mà đến từ những khoảng lặng và sự dũng cảm thử nghiệm những thứ điên rồ nhất.</p>
+            </div>
+        </section>
+
+        <section id="web">
+            <h2>2. Lập trình Web: Håkon Wium Lie</h2>
+            <div class="profile-flex">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcpDfORgrp4oxv9nivJM6ipR9YDJVc5RUZyw&s" alt="Håkon Wium Lie" class="profile-img">
+                <div>
+                    <h3>Cha đẻ của CSS - Người mang màu sắc tới Internet</h3>
+                    <p>Trước khi có sự đóng góp của Håkon, các trang web chỉ là những dòng chữ đen trắng đơn điệu. Ông là người đề xuất ngôn ngữ CSS để tách biệt nội dung và định dạng. Håkon đã nhìn ra một tương lai nơi người dùng có thể tùy biến giao diện web theo ý muốn.</p>
+                    <div class="quote-box">
+                        "Web là dành cho tất cả mọi người, và nó phải là một nơi mà bất kỳ ai cũng có thể sáng tạo mà không cần xin phép."
+                    </div>
+                </div>
+            </div>
+            <div class="story-card" style="background: var(--mint);">
+                <h4>Câu chuyện truyền cảm hứng:</h4>
+                <p>Håkon đã đấu tranh để giữ cho web luôn "mở" và tự do. Ông dành cả sự nghiệp để đảm bảo rằng mọi người, dù giàu hay nghèo, đều có thể tiếp cận kiến thức trên mạng một cách đẹp đẽ và dễ dàng nhất thông qua các tiêu chuẩn web công bằng.</p>
+            </div>
+        </section>
+
+        <section id="media">
+            <h2>3. Truyền thông Đa phương tiện: Casey Neistat</h2>
+            <div class="profile-flex">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Casey_Neistat_%40_SXSW_2017_%2833229303282%29_%28cropped%29.jpg" alt="Casey Neistat" class="profile-img">
+                <div>
+                    <h3>Kẻ nổi loạn định nghĩa lại Storytelling</h3>
+                    <p>Bắt đầu từ một người rửa bát, Casey đã dùng những thiết bị thô sơ nhất để tạo ra những video truyền cảm hứng cho hàng triệu người trên YouTube, phá bỏ mọi rào cản của truyền hình truyền thống. Ông cho rằng công cụ không quan trọng bằng nội dung. Sự chân thật và tốc độ là chìa khóa của truyền thông hiện đại.</p>
+                    <div class="quote-box">
+                        "Hãy làm những gì bạn không thể. Bởi vì giới hạn duy nhất là những gì bạn tự đặt ra cho chính mình."
+                    </div>
+                </div>
+            </div>
+            <div class="story-card">
+                <h4>Câu chuyện truyền cảm hứng:</h4>
+                <p>Ông chứng minh rằng công cụ (máy ảnh đắt tiền) không quan trọng bằng nội dung. Casey thường xuyên sử dụng băng keo cá nhân để dán máy ảnh và quay phim theo cách bản năng nhất, tạo ra một làn sóng "Vlog" thực tế trên toàn thế giới.</p>
+            </div>
+        </section>
+
+        <section id="vfx">
+            <h2>4. VFX Điện ảnh: Joe Letteri</h2>
+            <div class="profile-flex">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSicxeV5qfPkIaibzuElgMUzDldGgFG1ae8bg&s" alt="Joe Letteri" class="profile-img">
+                <div>
+                    <h3>Phù thủy đứng sau Avatar & Lord of the Rings</h3>
+                    <p>Joe Letteri (Giám đốc sáng tạo tại Weta FX) là người đã biến những nhân vật ảo như Gollum hay người Na'vi trở nên có hồn như người thật. Ông không chỉ dùng máy tính, ông nghiên cứu về sinh học, ánh sáng và tâm lý học để tạo ra những hiệu ứng kỹ xảo đạt đến mức "vô hình" – nơi khán giả không còn nhận ra đâu là thật, đâu là ảo.</p>
+                    <div class="quote-box">
+                        "Kỹ xảo xuất sắc nhất không phải là thứ khiến bạn trầm trồ vì sự hoành tráng, mà là thứ khiến bạn tin rằng nhân vật đó thực sự tồn tại."
+                    </div>
+                </div>
+            </div>
+            <div class="story-card" style="background: var(--mint);">
+                <h4>Câu chuyện truyền cảm hứng:</h4>
+                <p>Để tạo ra nhân vật Gollum hay người Na'vi, Joe không chỉ dùng máy tính. Ông dành hàng tháng trời nghiên cứu về giải phẫu học sinh học, cách ánh sáng xuyên qua lớp da người và tâm lý học hành vi để thổi hồn vào từng pixel ảnh.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <h2 style="color: white; border: none;">Mọi vĩ đại đều bắt đầu từ một ý tưởng</h2>
+        <p>Chọn ngành nghề không chỉ là chọn một công việc, mà là chọn cách bạn đóng góp giá trị cho thế giới.</p>
+        <div class="credit">
+            Thiết kế dựa trên phong cách của: <strong>Khánh Vy</strong> 
+        </div>
+    </footer>
+
+</body>
+</html>
