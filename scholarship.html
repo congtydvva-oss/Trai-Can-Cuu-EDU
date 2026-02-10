@@ -1,0 +1,337 @@
+<style>
+    /* Sử dụng palette màu từ styleddtest.css */
+    :root {
+        --bg-cream: #fdfaf1;
+        --mint: #bce3d9;
+        --coral: #ff9aa2;
+        --pink: #ffcad4;
+        --dark: #444;
+        --white: #ffffff;
+    }
+
+    /* Container cho Tab Content */
+    .scholarship-tab-container {
+        font-family: 'Quicksand', 'Segoe UI', sans-serif;
+        background-color: var(--bg-cream);
+        color: var(--dark);
+        padding: 20px;
+        border-radius: 0 0 20px 20px;
+    }
+
+    /* Layout 2 cột */
+    .tab-layout {
+        display: flex;
+        gap: 20px;
+    }
+
+    /* Cột phụ (Aside) */
+    .tab-aside {
+        flex: 1;
+        background: var(--white);
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        height: fit-content;
+    }
+
+    .aside-left { border-top: 5px solid var(--mint); }
+
+    /* Cột chính (Center) */
+    .tab-main-content {
+        flex: 3.5;
+        min-width: 0;
+    }
+
+    .tab-section-title {
+        text-align: center;
+        color: var(--coral);
+        font-size: 1rem;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+    }
+
+    /* Banner nội bộ */
+    .inner-banner {
+        background: linear-gradient(135deg, var(--mint) 0%, var(--coral) 100%);
+        color: white;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .inner-banner h2 { margin: 0; font-size: 1.5rem; }
+
+    /* Card Học bổng */
+    .scholar-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .scholar-card {
+        background: var(--white);
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 8px solid var(--mint);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        transition: 0.3s;
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .scholar-card:hover { transform: translateY(-3px); }
+    .scholar-card.highlight { border-left-color: var(--coral); }
+
+    /* Logo & Link Wrapper */
+    .scholar-logo-wrapper {
+        width: 100px;
+        flex-shrink: 0;
+        text-align: center;
+    }
+
+    .scholar-logo {
+        width: 80px;
+        height: 80px;
+        background: #f9f9f9;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #eee;
+        margin: 0 auto 8px;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+
+    .scholar-logo:hover { border-color: var(--coral); background: #fff; }
+
+    .scholar-logo img {
+        max-width: 80%;
+        max-height: 80%;
+        object-fit: contain;
+    }
+
+    .logo-link {
+        text-decoration: none;
+        color: var(--coral);
+        font-size: 0.75rem;
+        font-weight: 600;
+        display: block;
+        line-height: 1.2;
+    }
+
+    .logo-link:hover { text-decoration: underline; }
+
+    .card-content { flex-grow: 1; }
+
+    .card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .card-top h3 { margin: 0; font-size: 1.1rem; color: var(--dark); }
+
+    .price-tag {
+        background: var(--bg-cream);
+        color: var(--coral);
+        padding: 4px 10px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        border: 1px solid var(--pink);
+    }
+
+    .info-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        font-size: 0.85rem;
+        color: #666;
+    }
+
+    .info-row i { color: var(--mint); margin-right: 5px; }
+
+    .card-footer {
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px dashed #eee;
+    }
+
+    .footer-note {
+        font-size: 0.8rem;
+        font-style: italic;
+        color: #888;
+    }
+
+    /* UI Elements Side */
+    .status-box {
+        background: #f4faf8;
+        padding: 12px;
+        border-radius: 10px;
+        text-align: center;
+        margin-bottom: 15px;
+        border: 1px dashed var(--mint);
+        font-size: 0.85rem;
+    }
+
+    @media (max-width: 800px) {
+        .tab-layout { flex-direction: column; }
+        .scholar-card { flex-direction: column; align-items: center; text-align: center; }
+        .scholar-logo-wrapper { width: 100%; margin-bottom: 10px; }
+        .info-row { grid-template-columns: 1fr; }
+        .card-top { flex-direction: column; gap: 10px; }
+    }
+</style>
+
+<div class="scholarship-tab-container">
+    <div class="tab-layout">
+        
+        <!-- CỘT TRÁI: Thông báo & Trạng thái -->
+        <aside class="tab-aside aside-left">
+            <h3 class="tab-section-title">Trạng thái</h3>
+            <div class="status-box">
+                <i class="fas fa-clock" style="color: var(--coral);"></i><br>
+                Đang mở đơn đăng ký đợt 1
+            </div>
+            <div style="font-size: 0.8rem; line-height: 1.4;">
+                <p><strong>Hạn cuối:</strong> 31/12/2024</p>
+                <p><strong>Kết quả:</strong> Dự kiến 15/01/2025</p>
+                <hr style="border: none; border-top: 1px solid #eee; margin: 10px 0;">
+                <p style="color: var(--coral); font-weight: bold;">Lưu ý chung:</p>
+                <p>Hồ sơ bao gồm minh chứng hoàn cảnh và kết quả học tập THPT.</p>
+            </div>
+        </aside>
+
+        <!-- CỘT PHẢI: Danh sách học bổng -->
+        <div class="tab-main-content">
+            <div class="inner-banner">
+                <h2>Quỹ Học Bổng Tài Trợ</h2>
+                <p style="font-size: 0.9rem; margin-top: 5px;">Hỗ trợ sinh viên khóa 2022 & sinh viên khó khăn</p>
+            </div>
+
+            <div class="scholar-list">
+                <!-- Học bổng 1 -->
+                <div class="scholar-card highlight">
+                    <div class="scholar-logo-wrapper">
+                        <a href="https://tzuchi.us/scholarships/" target="_blank" class="scholar-logo">
+                            <img src="https://media.tzuchi.us/wp-content/uploads/2024/07/11082030/TzuChiLOGO1-1.png" alt="Tzu-chi">
+                        </a>
+                        <a href="https://tzuchi.us/scholarships/" target="_blank" class="logo-link">Quỹ Tzu-chi</a>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-top">
+                            <h3>Học bổng Tzu-Chi Foundation</h3>
+                            <span class="price-tag">Toàn phần 4 năm</span>
+                        </div>
+                        <div class="info-row">
+                            <div><i class="fas fa-user-plus"></i>10 suất</div>
+                            <div><i class="fas fa-id-card"></i>Tân sinh viên 2022</div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="footer-note">Yêu cầu: Học lực Khá + Tích cực CTXH.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Học bổng 2 -->
+                <div class="scholar-card">
+                    <div class="scholar-logo-wrapper">
+                        <a href="https://www.facebook.com/UIT.Fanpage" target="_blank" class="scholar-logo">
+                            <img src="https://ctgroupvietnam.com/wp-content/uploads/2024/03/logo.png" alt="CT-group">
+                        </a>
+                        <a href="https://ctgroupvietnam.com" target="_blank" class="logo-link">CT Group</a>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-top">
+                            <h3>Học bổng Tập đoàn CT Group</h3>
+                            <span class="price-tag">Toàn phần năm 1</span>
+                        </div>
+                        <div class="info-row">
+                            <div><i class="fas fa-user-plus"></i>10 suất</div>
+                            <div><i class="fas fa-heart"></i>Hoàn cảnh khó khăn</div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="footer-note">Hỗ trợ sinh viên nghèo vượt khó.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Học bổng 3 -->
+                <div class="scholar-card highlight">
+                    <div class="scholar-logo-wrapper">
+                        <a href="https://www.facebook.com/UIT.Fanpage" target="_blank" class="scholar-logo">
+                            <img src="https://nammientrung.com/wp-content/uploads/2025/01/Logo-Nam-Mien-Trung-T2-2025.png" alt="NamMienTrung-group">
+                        </a>
+                        <a href="http://nammientrung.com" target="_blank" class="logo-link">Nam Miền Trung</a>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-top">
+                            <h3>Học bổng Nam Miền Trung Group</h3>
+                            <span class="price-tag">Toàn phần 4 năm</span>
+                        </div>
+                        <div class="info-row">
+                            <div><i class="fas fa-user-plus"></i>10 suất</div>
+                            <div><i class="fas fa-graduation-cap"></i>Sinh viên khó khăn</div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="footer-note">Đồng hành suốt 4 năm đại học.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Học bổng 4 -->
+                <div class="scholar-card">
+                    <div class="scholar-logo-wrapper">
+                       <a href="https://www.facebook.com/UIT.Fanpage" target="_blank" class="scholar-logo">
+                            <img src="https://www.hanwhalife.com.vn/resources/views/themes/hanwha/public/img/logo.png" alt="Hanwalife-group">
+                        </a>
+                        <a href="https://www.hanwhalife.com.vn" target="_blank" class="logo-link">Hanwha Life</a>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-top">
+                            <h3>Học bổng Hanwha Life</h3>
+                            <span class="price-tag">5.000.000đ / suất</span>
+                        </div>
+                        <div class="info-row">
+                            <div><i class="fas fa-user-plus"></i>45 suất</div>
+                            <div><i class="fas fa-users"></i>Sinh viên khó khăn</div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="footer-note">Hỗ trợ từ Bảo hiểm Hanwha Life.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Học bổng 5 -->
+                <div class="scholar-card">
+                    <div class="scholar-logo-wrapper">
+                        <a href="https://www.facebook.com/UIT.Fanpage" target="_blank" class="scholar-logo">
+                            <img src="https://yersin.edu.vn/wp-content/uploads/2024/05/image-5.svg" alt="Alexandre-group">
+                        </a>
+                        <a href="#" target="_blank" class="logo-link">Quỹ Yersin</a>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-top">
+                            <h3>Học bổng Alexandre Yersin</h3>
+                            <span class="price-tag">5.000.000đ / suất</span>
+                        </div>
+                        <div class="info-row">
+                            <div><i class="fas fa-user-plus"></i>20 suất</div>
+                            <div><i class="fas fa-certificate"></i>NFT Ngọc Linh tài trợ</div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="footer-note">Dành cho sinh viên nghèo vượt khó.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
